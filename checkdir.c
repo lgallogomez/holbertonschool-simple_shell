@@ -12,9 +12,9 @@ int checkdir(char **str)
 {
 	char *var[128], *command, temp[128];
 	int i = 1;
-	const char delimiter[] = ":"; /*salto linea no tenia sentido*/
+	const char delimiter[] = ":"; 
 	struct stat file_stat;
-	char *env = malloc(1024); /**/
+	char *env = malloc(1024);
 
 	if (env == NULL)
 		return (0);
@@ -42,7 +42,7 @@ int checkdir(char **str)
 	{
 		strcpy(temp, var[i]);
 		strcat(temp, command);
-		if (stat(temp, &file_stat) == 0) /*tener 2 stats no tiene sentido*/
+		if (stat(temp, &file_stat) == 0)
 		{
 			free(command);
 			forkshell(temp, str, env);
