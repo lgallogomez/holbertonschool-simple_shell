@@ -40,10 +40,6 @@ int main(void)
 				token = strtok(NULL, delimiter);
 				if (token != NULL)
 				{
-					if (str[i] == ' ' || str[i] == '   ')
-					{
-
-					}
 					str[i] = token;
 					i++;
 				}
