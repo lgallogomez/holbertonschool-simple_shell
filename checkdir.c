@@ -92,13 +92,13 @@ int forkshell(char *file, char **str, char *env)
 
 int printenv(char *line)
 {
-    char **env = environ;
+	char **env = environ;
 
-    while (*env != NULL) {
-        printf("%s\n", *env);
-        env++; 
-    }
+	while (*env != NULL) {
+		printf("%s\n", *env);
+		env++; 
+	}
 
 	free(line);
-    return (0);
+	return (0);
 }
