@@ -29,17 +29,12 @@ int main(void)
 			exit(0);
 		}
 		token = strtok(line, delimiter);
-		while (token != NULL && token[0] == '\0')
-		{
-			token = strtok(NULL, delimiter);
-		}
-		if (token == NULL)
+		str[0] = token;
+		if (str[0] == NULL)
 		{
 			free(line);
-			continue;
+			return(0);
 		}
-		str[0] = token;
-		printf("%s", str[0]);
 		if (strcmp(str[0], "env") == 0)
 			printenv(line);
 		else if (token != NULL)
