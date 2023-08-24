@@ -15,7 +15,6 @@ int main(void)
 	char *line = NULL, *token, *str[5];
 	const char delimiter[] = " \n\t\0    ";
 	int i = 1;
-	int j = 0;
 
 	while (1)
 	{
