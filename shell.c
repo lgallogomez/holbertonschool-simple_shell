@@ -23,13 +23,23 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			write(1, "($) ", 5);
 		line_len = getline(&line, &arg_line_len, stdin);
-		if (line_len == EOF || (strcmp(line, "exit\n") == 0) || (strcmp(line, " ") == 0) || (strcmp(line, "                ") == 0))
+		if (line_len == EOF || (strcmp(line, "exit\n") == 0))
 		{
 			free(line);
 			exit(0);
 		}
 		token = strtok(line, delimiter);
+		while (token != NULL && token[0] == '\0')
+		{
+			token = strtok(NULL, delimiter);
+		}
+		if (token == NULL)
+		{
+			free(line);
+			continue;
+		}
 		str[0] = token;
+		printf("%s", str[0]);
 		if (strcmp(str[0], "env") == 0)
 			printenv(line);
 		else if (token != NULL)
