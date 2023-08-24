@@ -12,7 +12,7 @@ int checkdir(char **str)
 {
 	char *var[128], *command, temp[128];
 	int i = 1;
-	const char delimiter[] = ":"; 
+	const char delimiter[] = ":";
 	struct stat file_stat;
 	char *env = malloc(1024);
 
@@ -32,7 +32,7 @@ int checkdir(char **str)
 		forkshell(str[0], str, env);
 		return (0);
 	}
-	command = malloc(32); 
+	command = malloc(32);
 	if (command == NULL)
 		return (0);
 
@@ -94,7 +94,8 @@ int printenv(char *line)
 {
 	char **env = environ;
 
-	while (*env != NULL) {
+	while (*env != NULL)
+	{
 		printf("%s\n", *env);
 		env++; 
 	}
@@ -102,3 +103,4 @@ int printenv(char *line)
 	free(line);
 	return (0);
 }
+
