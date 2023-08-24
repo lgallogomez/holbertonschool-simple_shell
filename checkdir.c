@@ -93,6 +93,7 @@ int forkshell(char *file, char **str, char *env)
 /**
  * printenv - prints environment
  * @line: bring file to free and save space in main
+ * Return: 0 on success
 */
 int printenv(char *line)
 {
