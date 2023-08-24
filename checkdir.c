@@ -57,7 +57,7 @@ int checkdir(char **str)
 
 /**
  * forkshell - when command is found, it creates the fork
- * @fileloc: location of the executable file
+ * @file: location of the executable file
  * @env: memory to free
  * @str: arguments
  *
@@ -90,6 +90,10 @@ int forkshell(char *file, char **str, char *env)
 	return (0);
 }
 
+/**
+ * printenv - prints environment
+ * @line: bring file to free and save space in main
+*/
 int printenv(char *line)
 {
 	char **env = environ;
@@ -97,7 +101,7 @@ int printenv(char *line)
 	while (*env != NULL)
 	{
 		printf("%s\n", *env);
-		env++; 
+		env++;
 	}
 
 	free(line);
