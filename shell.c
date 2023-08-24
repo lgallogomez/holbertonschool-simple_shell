@@ -23,7 +23,7 @@ int main(void)
 		if (isatty(STDIN_FILENO))
 			write(1, "($) ", 5);
 		line_len = getline(&line, &arg_line_len, stdin);
-		if (line_len == EOF || (strcmp(line, "exit\n") == 0) || (strcmp(line, " \n") == 0) || (strcmp(line, "     \n") == 0))
+		if (line_len == EOF || (strcmp(line, "exit\n") == 0) || (strcmp(line, " ") == 0) || (strcmp(line, "                ") == 0))
 		{
 			free(line);
 			exit(0);
