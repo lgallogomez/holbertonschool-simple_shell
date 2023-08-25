@@ -87,6 +87,10 @@ int forkshell(char *file, char **str, char *env)
 	else
 	{
 		wait(&status);
+		if (WIFEXITED(status) && WEXITSTATUS(status) != 0)
+        {
+            fprintf(stderr, "Error: Child process exited with status %d\n", WEXITSTATUS(status));
+        }
 		free(env);
 	}
 	return (0);
