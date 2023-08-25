@@ -19,6 +19,11 @@ int checkdir(char **str)
 	if (env == NULL)
 		return (0);
 	strcpy(env, getenv("PATH"));
+	if (env == NULL)
+	{
+		free(env);
+		return(0);
+	}
 	var[0] = strtok(env, delimiter);
 	while (1)
 	{
