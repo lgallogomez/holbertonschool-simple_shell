@@ -1,12 +1,9 @@
 #include "main.h"
-
 /**
- * main - simple shell
- *
- * Return: 0 when exiting
- */
-
-#include "main.h"
+* main - simple shell
+*
+* Return: 0 when exiting
+*/
 
 int main(void)
 {
@@ -14,7 +11,7 @@ int main(void)
 	size_t arg_line_len = 0;
 	char *line = NULL, *token, *str[5];
 	const char delimiter[] = " \n\t\0";
-	int i = 1;
+	int i = 1, exstat;
 
 	while (1)
 	{
@@ -31,30 +28,19 @@ int main(void)
 		token = strtok(line, delimiter);
 		str[0] = token;
 		if (str[0] == NULL)
-		{
 			free(line);
-			return(0);
-		}
-		if (strcmp(str[0], "env") == 0)
+		else if (strcmp(str[0], "env") == 0)
 			printenv(line);
-		else if (token != NULL)
+		else
 		{
-			while (token != NULL)
+			for (i = 1; token != NULL; i++)
 			{
 				token = strtok(NULL, delimiter);
-				if (token != NULL)
-				{
-					str[i] = token;
-					i++;
-				}
+				str[i] = token;
 			}
-			str[i] = NULL;
-			checkdir(str);
+			exstat = checkdir(str);
 			free(line);
 		}
-		else
-			free(line);
 	}
-	return (0);
+	return (exstat);
 }
-
